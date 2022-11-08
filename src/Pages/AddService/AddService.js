@@ -1,70 +1,108 @@
 import React from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const AddService = () => {
+  const handleServiceAdd = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const serviceName = form.serviceName.value;
+    const servicePrice = form.servicePrice.value;
+    const serviceURL = form.serviceURL.value;
+    const serviceDetails = form.serviceDetails.value;
+    // console.log(serviceName, servicePrice, serviceURL, serviceDetails);
+
+    const services = {
+      serviceName: serviceName,
+      servicePrice: servicePrice,
+      serviceURL: serviceURL,
+      serviceDetails: serviceDetails,
+    };
+
+    fetch("http://localhost:5000/services", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(services),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          toast.success("Service Added Successfully!");
+          form.reset();
+        }
+      })
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div className="container mx-auto py-10">
       <h2 className="lg:text-5xl text-pink-900 font-bold lg:text-start text-center text-4xl">
         Add A Service
       </h2>
       <div className="my-10 mx-5">
-        <form>
+        <form onSubmit={handleServiceAdd}>
           <div className="flex lg:flex-row flex-col lg:justify-between">
-            <div class="mb-6 lg:w-1/2 w-full pr-3">
+            <div className="mb-6 lg:w-1/2 w-full pr-3">
               <label
                 for="name"
-                class="block text-xl mb-2 font-medium text-gray-900"
+                className="block text-xl mb-2 font-medium text-gray-900"
               >
                 Service Name
               </label>
               <input
                 type="text"
+                name="serviceName"
                 id="name"
-                class=" border-2 border-pink-900 rounded-lg block w-full p-2.5  focus:outline-none focus:border-pink-900 focus:ring-1 focus:ring-pink-900"
+                className=" border-2 border-pink-900 rounded-lg block w-full p-2.5  focus:outline-none focus:border-pink-900 focus:ring-1 focus:ring-pink-900"
                 placeholder="Service Name"
                 required
               />
             </div>
-            <div class="mb-6 lg:w-1/2 w-full lg:pl-3">
+            <div className="mb-6 lg:w-1/2 w-full lg:pl-3">
               <label
                 for="price"
-                class="block text-xl mb-2 font-medium text-gray-900"
+                className="block text-xl mb-2 font-medium text-gray-900"
               >
                 Price
               </label>
               <input
                 type="number"
+                name="servicePrice"
                 id="price"
-                class=" border-2 border-pink-900 rounded-lg block w-full p-2.5  focus:outline-none focus:border-pink-900 focus:ring-1 focus:ring-pink-900"
+                className=" border-2 border-pink-900 rounded-lg block w-full p-2.5  focus:outline-none focus:border-pink-900 focus:ring-1 focus:ring-pink-900"
                 placeholder="Service Price"
                 required
               />
             </div>
           </div>
-          <div class="mb-6">
+          <div className="mb-6">
             <label
               for="url"
-              class="block text-xl mb-2 font-medium text-gray-900"
+              className="block text-xl mb-2 font-medium text-gray-900"
             >
               Image URL
             </label>
             <input
               type="text"
               id="url"
-              class=" border-2 border-pink-900 rounded-lg block w-full p-2.5  focus:outline-none focus:border-pink-900 focus:ring-1 focus:ring-pink-900"
+              name="serviceURL"
+              className=" border-2 border-pink-900 rounded-lg block w-full p-2.5  focus:outline-none focus:border-pink-900 focus:ring-1 focus:ring-pink-900"
               placeholder="Service Price"
               required
             />
           </div>
-          <div class="mb-6">
+          <div className="mb-6">
             <label
               for="details"
-              class="block text-xl mb-2 font-medium text-gray-900"
+              className="block text-xl mb-2 font-medium text-gray-900"
             >
               Service Details
             </label>
             <textarea
               id="details"
-              name="message"
+              name="serviceDetails"
               required
               className="border-2 h-24 border-pink-900 rounded-lg block w-full p-3  focus:outline-none focus:border-pink-900 focus:ring-1 focus:ring-pink-900"
               placeholder="Service description"
