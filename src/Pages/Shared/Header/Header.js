@@ -46,7 +46,10 @@ const Header = () => {
           <div className="navbar-start">
             <ul className="menu menu-horizontal p-0 lg:flex hidden">
               <li>
-                <Link className="text-lg font-medium uppercase hover:text-pink-800">
+                <Link
+                  to="/"
+                  className="text-lg font-medium uppercase hover:text-pink-800"
+                >
                   Home
                 </Link>
               </li>
@@ -96,7 +99,10 @@ const Header = () => {
                 className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <Link className="text-base font-medium uppercase hover:text-pink-800">
+                  <Link
+                    to="/"
+                    className="text-base font-medium uppercase hover:text-pink-800"
+                  >
                     Home
                   </Link>
                 </li>
