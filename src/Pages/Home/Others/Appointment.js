@@ -2,7 +2,7 @@ import React from "react";
 
 const Appointment = () => {
   return (
-    <div className="bg-[#9e005d] mt-24 py-12">
+    <div className="bg-[#7f2058] mt-24 mb-20 py-12 shadow-xl">
       <div className="flex lg:flex-row lg:justify-between flex-col items-center mx-auto container px-5 lg:px-0">
         <div className=" text-gray-200  text-center lg:text-start">
           <h2 className="font-script lg:text-5xl text-3xl">

@@ -61,7 +61,10 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link className="text-lg font-medium uppercase hover:text-pink-800">
+                <Link
+                  to="/addservice"
+                  className="text-lg font-medium uppercase hover:text-pink-800"
+                >
                   Add Service
                 </Link>
               </li>
@@ -108,7 +111,10 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-base font-medium uppercase hover:text-pink-800">
+                  <Link
+                    to="/addservice"
+                    className="text-base font-medium uppercase hover:text-pink-800"
+                  >
                     Add Service
                   </Link>
                 </li>

@@ -35,9 +35,8 @@ const Gallary = () => {
       height: 1000,
     },
   ];
-
   return (
-    <div className="bg-[#9e005d] mt-24">
+    <div className="bg-[#9e005d] mt-24 shadow-xl">
       <div className="container mx-auto">
         <div className="py-16 text-center">
           <h2 className="font-script text-5xl  text-gray-200">Our Brides</h2>
