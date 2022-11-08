@@ -4,10 +4,9 @@ import "./Header.css";
 import logo from "../../../assets/images/logo2.png";
 import clock from "../../../assets/images/clock.png";
 import loc from "../../../assets/images/location.png";
-//#A7144C
 const Header = () => {
   return (
-    <div className="bg-base-100">
+    <div className="bg-base-100 shadow-xl">
       <div className=" flex flex-col lg:px-10 py-5">
         <div className="lg:flex lg:flex-row lg:justify-between hidden lg:px-5">
           <div className="flex lg:justify-start justify-center">
