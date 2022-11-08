@@ -12,20 +12,21 @@ const HeroSection = () => {
         <div className="carousel-img">
           <img
             src={img1}
-            className="w-screen object-cover object-center lg:max-h-[800px] min-h-[200px] "
+            className="w-screen object-cover object-center lg:max-h-[800px] min-h-[400px] "
             alt=""
           />
         </div>
-        <div className="absolute flex flex-col justify-center transform -translate-y-1/2 left-1/3  top-1/3 w-1/3">
-          <h1 className=" text-6xl italic font-pacific text-white text-center">
+        <div className="absolute flex flex-col justify-end transform -translate-y-1/2 lg:left-1/3  lg:top-1/3 lg:w-1/3 left-12 top-1/2 w-5/6">
+          <h1 className="lg:text-6xl text-3xl italic font-pacific text-white text-center">
             {" "}
             Glamourus Makeover by Azmi
           </h1>
-          <p className="text-white text-center text-lg py-10 italic">
-            Glamourous makeover makes a personal commitment <br /> to realize
-            the prevalent gap in the industry by providing access to high-end
-            salon services at convenient times and affordable prices – any day
-            of the week and <br /> any time of the day!
+          <p className="text-white lg:text-lg text-center lg:py-10 py-5 italic">
+            Glamourous makeover makes a personal commitment{" "}
+            <br className="lg:block hidden" /> to realize the prevalent gap in
+            the industry by providing access to high-end salon services at
+            convenient times and affordable prices – any day of the week and{" "}
+            <br /> any time of the day!
           </p>
         </div>
         <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">

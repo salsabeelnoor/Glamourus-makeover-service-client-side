@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         pacific: ["'Pacifico'", "cursive"],
+        script: ["'Kaushan Script'", "cursive"],
       },
     },
   },

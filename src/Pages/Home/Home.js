@@ -1,11 +1,14 @@
 import React from "react";
 import HeroSection from "./HeroSection/HeroSection";
+import Appointment from "./Others/Appointment";
+import Gallary from "./Others/Gallary";
 
 const Home = () => {
   return (
     <div>
       <HeroSection></HeroSection>
-      <h2>This is home</h2>
+      <Gallary></Gallary>
+      <Appointment></Appointment>
     </div>
   );
 };
