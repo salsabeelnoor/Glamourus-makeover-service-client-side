@@ -69,19 +69,26 @@ const Header = () => {
                   Services
                 </Link>
               </li>
-              <li>
-                <Link className="text-lg font-medium uppercase hover:text-pink-800">
-                  My Reviews
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/addservice"
-                  className="text-lg font-medium uppercase hover:text-pink-800"
-                >
-                  Add Service
-                </Link>
-              </li>
+              {user?.uid ? (
+                <>
+                  <li>
+                    <Link className="text-lg font-medium uppercase hover:text-pink-800">
+                      My Reviews
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/addservice"
+                      className="text-lg font-medium uppercase hover:text-pink-800"
+                    >
+                      Add Service
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                ""
+              )}
+
               <li>
                 <Link className="text-lg font-medium uppercase hover:text-pink-800">
                   Blog
@@ -125,19 +132,25 @@ const Header = () => {
                     Services
                   </Link>
                 </li>
-                <li>
-                  <Link className="text-base font-medium uppercase hover:text-pink-800">
-                    My Reviews
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/addservice"
-                    className="text-base font-medium uppercase hover:text-pink-800"
-                  >
-                    Add Service
-                  </Link>
-                </li>
+                {user?.uid ? (
+                  <>
+                    <li>
+                      <Link className="text-lg font-medium uppercase hover:text-pink-800">
+                        My Reviews
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/addservice"
+                        className="text-lg font-medium uppercase hover:text-pink-800"
+                      >
+                        Add Service
+                      </Link>
+                    </li>
+                  </>
+                ) : (
+                  ""
+                )}
                 <li>
                   <Link className="text-base font-medium uppercase hover:text-pink-800">
                     Blog
