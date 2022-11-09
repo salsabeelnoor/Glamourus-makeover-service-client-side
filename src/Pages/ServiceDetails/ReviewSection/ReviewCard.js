@@ -4,7 +4,7 @@ import AuthProvider, {
   AuthContext,
 } from "../../../Contexts/AuthProvider/AuthProvider";
 
-const Review = ({ review }) => {
+const ReviewCard = ({ review }) => {
   const { user } = useContext(AuthContext);
   return (
     <div className="">
@@ -29,4 +29,4 @@ const Review = ({ review }) => {
   );
 };
 
-export default Review;
+export default ReviewCard;

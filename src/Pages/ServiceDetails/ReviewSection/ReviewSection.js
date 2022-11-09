@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
-import Review from "./Review";
+import Review from "./ReviewCard";
 
 const ReviewSection = () => {
   const { _id, serviceName } = useLoaderData();
@@ -94,11 +94,11 @@ const ReviewSection = () => {
           </>
         )}
       </div>
-      <div className="mx-auto container px-3">
+      <div className="mx-auto container ">
         <h2 className="lg:text-5xl text-2xl font-medium text-pink-900 pb-9 uppercase">
           What Others Say
         </h2>
-        <div className="grid lg:grid-cols-3 grid-cols-1 gap-3 lg:gap-0 justify-items-center mb-20">
+        <div className="grid lg:grid-cols-4 grid-cols-1 gap-3 lg:gap-36 justify-items-center mb-20 lg:px-12 px-3">
           {reviews.map((review) => (
             <Review key={review._id} review={review}></Review>
           ))}

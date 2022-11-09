@@ -72,7 +72,10 @@ const Header = () => {
               {user?.uid ? (
                 <>
                   <li>
-                    <Link className="text-lg font-medium uppercase hover:text-pink-800">
+                    <Link
+                      to="/myReviews"
+                      className="text-lg font-medium uppercase hover:text-pink-800"
+                    >
                       My Reviews
                     </Link>
                   </li>
@@ -135,7 +138,10 @@ const Header = () => {
                 {user?.uid ? (
                   <>
                     <li>
-                      <Link className="text-lg font-medium uppercase hover:text-pink-800">
+                      <Link
+                        to="/myReviews"
+                        className="text-lg font-medium uppercase hover:text-pink-800"
+                      >
                         My Reviews
                       </Link>
                     </li>

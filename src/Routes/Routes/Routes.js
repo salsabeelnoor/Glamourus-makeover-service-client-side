@@ -5,6 +5,8 @@ import AddService from "../../Pages/AddService/AddService";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
+import MyReviews from "../../Pages/MyReviews/MyReviews/MyReviews";
+import MyReviewUpdate from "../../Pages/MyReviews/MyReviewUpdate/MyReviewUpdate";
 import ReviewSection from "../../Pages/ServiceDetails/ReviewSection/ReviewSection";
 import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails/ServiceDetails";
 import ServiceDetailsSection from "../../Pages/ServiceDetails/ServiceDetailsSection/ServiceDetailsSection";
@@ -46,6 +48,16 @@ export const routes = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/myReviews",
+        element: <MyReviews></MyReviews>,
+      },
+      {
+        path: "/reviewUpdate/:id",
+        element: <MyReviewUpdate></MyReviewUpdate>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/reviewUpdate/${params.id}`),
       },
     ],
   },
