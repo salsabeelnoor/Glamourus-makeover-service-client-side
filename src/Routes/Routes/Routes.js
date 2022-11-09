@@ -1,10 +1,15 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
+import AddReview from "../../Pages/AddReview/AddReview";
 import AddService from "../../Pages/AddService/AddService";
 import Home from "../../Pages/Home/Home";
+import Login from "../../Pages/Login/Login/Login";
+import Register from "../../Pages/Login/Register/Register";
+import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails/ServiceDetails";
 import ServiceDetailsSection from "../../Pages/ServiceDetails/ServiceDetailsSection/ServiceDetailsSection";
 import Services from "../../Pages/Services/Services";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Route404 from "../Route404/Route404";
 
 export const routes = createBrowserRouter([
@@ -18,7 +23,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/addservice",
-        element: <AddService></AddService>,
+        element: (
+          <PrivateRoute>
+            <AddService></AddService>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/services",
@@ -26,9 +35,21 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/services/:id",
-        element: <ServiceDetailsSection></ServiceDetailsSection>,
+        element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/services/${params.id}`),
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/addReview",
+        element: <AddReview></AddReview>,
       },
     ],
   },

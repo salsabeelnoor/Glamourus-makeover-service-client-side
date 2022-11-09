@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import logo from "../../../assets/images/logo2.png";
 import clock from "../../../assets/images/clock.png";
 import loc from "../../../assets/images/location.png";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div className="bg-base-100 shadow-xl">
       <div className=" flex flex-col lg:px-10 py-5">
@@ -135,14 +144,31 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link className="btn flex mr-2 bg-transparent border-2 border-pink-800 text-black hover:text-white hover:bg-pink-700 hover:border-2">
-                    Log in
-                  </Link>
-                </li>
-                <li>
-                  <Link className="btn flex mr-2 bg-transparent border-2 border-pink-800 text-black hover:text-white hover:bg-pink-700 hover:border-2 my-2">
-                    Register
-                  </Link>
+                  {user?.uid ? (
+                    <>
+                      <Link
+                        onClick={handleLogOut}
+                        className="btn bg-transparent border-2 border-pink-800 text-black hover:text-white hover:bg-pink-700 hover:border-2"
+                      >
+                        Logout
+                      </Link>
+                    </>
+                  ) : (
+                    <>
+                      <Link
+                        to="/login"
+                        className="btn bg-transparent border-2 border-pink-800 text-black hover:text-white hover:bg-pink-700 hover:border-2"
+                      >
+                        Log in
+                      </Link>
+                      <Link
+                        to="/register"
+                        className="btn my-3 bg-transparent border-2 border-pink-800 text-black hover:text-white hover:bg-pink-700 hover:border-2"
+                      >
+                        Register
+                      </Link>
+                    </>
+                  )}
                 </li>
               </ul>
             </div>
@@ -156,14 +182,34 @@ const Header = () => {
           <div className="navbar-end hidden lg:flex">
             <ul className="menu menu-horizontal p-0">
               <li>
-                <Link className="btn hidden lg:flex mr-2 bg-transparent border-2 border-pink-800 text-black hover:text-white hover:bg-pink-700 hover:border-2">
-                  Log in
-                </Link>
-              </li>
-              <li>
-                <Link className="btn hidden lg:flex mr-2 bg-transparent border-2 border-pink-800 text-black hover:text-white hover:bg-pink-700 hover:border-2">
-                  Register
-                </Link>
+                {user?.uid ? (
+                  <>
+                    <span className="text-lg font-medium">
+                      {user?.displayName}
+                    </span>
+                    <Link
+                      onClick={handleLogOut}
+                      className="btn hidden lg:flex mr-2 bg-transparent border-2 border-pink-800 text-black hover:text-white hover:bg-pink-700 hover:border-2"
+                    >
+                      Logout
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <Link
+                      to="/login"
+                      className="btn hidden lg:flex mr-2 bg-transparent border-2 border-pink-800 text-black hover:text-white hover:bg-pink-700 hover:border-2"
+                    >
+                      Log in
+                    </Link>
+                    <Link
+                      to="/register"
+                      className="btn hidden lg:flex mr-2 bg-transparent border-2 border-pink-800 text-black hover:text-white hover:bg-pink-700 hover:border-2"
+                    >
+                      Register
+                    </Link>
+                  </>
+                )}
               </li>
             </ul>
           </div>

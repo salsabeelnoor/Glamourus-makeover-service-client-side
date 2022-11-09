@@ -5,13 +5,21 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.REACR_APP_apiKey,
-  authDomain: process.env.REACR_APP_authDomain,
-  projectId: process.env.REACR_APP_projectId,
-  storageBucket: process.env.REACR_APP_storageBucket,
-  messagingSenderId: process.env.REACR_APP_messagingSenderId,
-  appId: process.env.REACR_APP_appId,
+  apiKey: "AIzaSyCn8HdaUqlYAHA2K4JYqBC9p4T60WzzV9k",
+  authDomain: "bridal-makeover-client.firebaseapp.com",
+  projectId: "bridal-makeover-client",
+  storageBucket: "bridal-makeover-client.appspot.com",
+  messagingSenderId: "954200156599",
+  appId: "1:954200156599:web:ffef93eff4e36f21ec6032",
 };
+// const firebaseConfig = {
+//   apiKey: process.env.REACT_APP_apiKey,
+//   authDomain: process.env.REACT_APP_authDomain,
+//   projectId: process.env.REACT_APP_projectId,
+//   storageBucket: process.env.REACT_APP_storageBucket,
+//   messagingSenderId: process.env.REACT_APP_messagingSenderId,
+//   appId: process.env.REACT_APP_appId,
+// };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
