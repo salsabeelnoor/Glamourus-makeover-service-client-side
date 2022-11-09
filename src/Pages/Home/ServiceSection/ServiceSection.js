@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ServiceCard from "../../Shared/ServiceCard/ServiceCard";
 
 const ServiceSection = () => {
@@ -23,10 +24,18 @@ const ServiceSection = () => {
           any time of the day!
         </p>
       </div>
-      <div className="grid lg:grid-cols-3 grid-cols-1 gap-0">
-        {services.map((service) => (
+      <div className="grid lg:grid-cols-3 grid-cols-1 justify-items-center items-center gap-6 py-5 lg:px-0 px-3">
+        {services.slice(0, 3).map((service) => (
           <ServiceCard key={service._id} service={service}></ServiceCard>
         ))}
+      </div>
+      <div className="flex justify-end py-4">
+        <Link
+          to="/services"
+          className="btn bg-transparent border-4 border-pink-800 text-black hover:text-white hover:bg-pink-700 hover:border-2"
+        >
+          Explore more
+        </Link>
       </div>
     </div>
   );

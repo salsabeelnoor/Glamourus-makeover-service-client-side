@@ -25,7 +25,10 @@ const ServiceCard = ({ service }) => {
             Price: {servicePrice} BDT
           </p>
           <div className="card-actions justify-center w-full mb-0">
-            <Link className="btn w-full mb-0 bg-transparent text-gray-800 text-lg normal-case hover:text-white hover:bg-pink-800 border-pink-900">
+            <Link
+              to={`/services/${_id}`}
+              className="btn w-full mb-0 bg-transparent text-gray-800 text-lg normal-case hover:text-white hover:bg-pink-800 border-pink-900"
+            >
               <button className="">See Details</button>
             </Link>
           </div>

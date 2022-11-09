@@ -7,6 +7,10 @@ module.exports = {
         pacific: ["'Pacifico'", "cursive"],
         script: ["'Kaushan Script'", "cursive"],
       },
+      gridTemplateColumns: {
+        layout: "3fr 2fr",
+        mobile_layout: "1fr",
+      },
     },
   },
   plugins: [require("daisyui")],
