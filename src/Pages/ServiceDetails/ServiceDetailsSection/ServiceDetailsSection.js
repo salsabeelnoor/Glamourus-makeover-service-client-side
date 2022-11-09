@@ -9,7 +9,11 @@ const ServiceDetailsSection = () => {
       <div className="cursor-pointer">
         <PhotoProvider>
           <PhotoView src={services.serviceURL}>
-            <img className="w-full h-auto" src={services.serviceURL} alt="" />
+            <img
+              className="w-full h-auto rounded-lg shadow-xl"
+              src={services.serviceURL}
+              alt=""
+            />
           </PhotoView>
         </PhotoProvider>
       </div>

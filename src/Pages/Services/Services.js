@@ -25,7 +25,9 @@ const Services = () => {
       </div>
       <div className="grid lg:grid-cols-3 grid-cols-1 justify-items-center items-center gap-6 py-5 lg:px-0 px-3">
         {services.map((service) => (
-          <ServiceCard key={service._id} service={service}></ServiceCard>
+          <ServiceCard key={service._id} service={service}>
+            {console.log(service)}
+          </ServiceCard>
         ))}
       </div>
     </div>

@@ -1,11 +1,11 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
-import AddReview from "../../Pages/AddReview/AddReview";
 import AddService from "../../Pages/AddService/AddService";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
+import ReviewSection from "../../Pages/ServiceDetails/ReviewSection/ReviewSection";
 import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails/ServiceDetails";
 import ServiceDetailsSection from "../../Pages/ServiceDetails/ServiceDetailsSection/ServiceDetailsSection";
 import Services from "../../Pages/Services/Services";
@@ -46,10 +46,6 @@ export const routes = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
-      },
-      {
-        path: "/addReview",
-        element: <AddReview></AddReview>,
       },
     ],
   },
