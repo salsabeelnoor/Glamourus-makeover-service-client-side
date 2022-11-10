@@ -1,11 +1,13 @@
 import React from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { useLoaderData } from "react-router-dom";
+import PageTitle from "../../Shared/Header/PageTitle/PageTitle";
 
 const ServiceDetailsSection = () => {
   const services = useLoaderData();
   return (
     <div className="grid lg:grid-cols-layout gap-9 grid-cols-mobile_layout mx-auto container lg:px-0 px-3 py-16">
+      <PageTitle title={services.serviceName}></PageTitle>
       <div className="cursor-pointer">
         <PhotoProvider>
           <PhotoView src={services.serviceURL}>

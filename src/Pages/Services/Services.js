@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from "react";
+import PageTitle from "../Shared/Header/PageTitle/PageTitle";
 import ServiceCard from "../Shared/ServiceCard/ServiceCard";
 
 const Services = () => {
   const [services, setServices] = useState([]);
+  const [spinner, setSpinner] = useState(false);
 
   //fetch services
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    setSpinner(true);
+    fetch("https://bridal-makeover-server.vercel.app/services")
       .then((res) => res.json())
-      .then((data) => setServices(data));
+      .then((data) => {
+        setServices(data);
+        setSpinner(false);
+      });
   }, []);
   return (
-    <div className="mx-auto container py-16">
+    <div className="mx-auto container py-16 min-h-screen">
+      <PageTitle title={"Services"}></PageTitle>
       <div className="text-center">
         <h2 className="font-script text-5xl  text-pink-900">Our Services</h2>
         <p className="p-7 text-base text-gray-800">
@@ -24,11 +31,19 @@ const Services = () => {
         </p>
       </div>
       <div className="grid lg:grid-cols-3 grid-cols-1 justify-items-center items-center gap-6 py-5 lg:px-0 px-3">
-        {services.map((service) => (
-          <ServiceCard key={service._id} service={service}>
-            {console.log(service)}
-          </ServiceCard>
-        ))}
+        {spinner ? (
+          <div className="flex justify-center">
+            <div className="radial-progress " style={{ "--value": 70 }}>
+              70%
+            </div>
+          </div>
+        ) : (
+          services.map((service) => (
+            <ServiceCard key={service._id} service={service}>
+              {console.log(service)}
+            </ServiceCard>
+          ))
+        )}
       </div>
     </div>
   );

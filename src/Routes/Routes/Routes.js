@@ -2,6 +2,7 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
 import AddService from "../../Pages/AddService/AddService";
+import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
@@ -39,7 +40,9 @@ export const routes = createBrowserRouter([
         path: "/services/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(
+            `https://bridal-makeover-server.vercel.app/services/${params.id}`
+          ),
       },
       {
         path: "/login",
@@ -57,7 +60,13 @@ export const routes = createBrowserRouter([
         path: "/reviewUpdate/:id",
         element: <MyReviewUpdate></MyReviewUpdate>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/reviewUpdate/${params.id}`),
+          fetch(
+            `https://bridal-makeover-server.vercel.app/reviewUpdate/${params.id}`
+          ),
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
     ],
   },

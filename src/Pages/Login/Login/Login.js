@@ -4,6 +4,7 @@ import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../../assets/images/banner/banner8.png";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
+import PageTitle from "../../Shared/Header/PageTitle/PageTitle";
 const Login = () => {
   const [error, setError] = useState("");
   const { login, providerLogin } = useContext(AuthContext);
@@ -18,7 +19,7 @@ const Login = () => {
     providerLogin(googleProvider)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -36,10 +37,12 @@ const Login = () => {
     login(email, password)
       .then((result) => {
         const user = result.user;
+        const currentUser = {
+          uid: user.uid,
+        };
         console.log(user);
         form.reset();
         setError("");
-        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);
@@ -49,6 +52,7 @@ const Login = () => {
 
   return (
     <div className="bg-pink-100">
+      <PageTitle title={"Login"}></PageTitle>
       <div className="grid lg:grid-cols-layout grid-cols-mobile_layout mx-auto container lg:px-0 py-16">
         <div>
           <img

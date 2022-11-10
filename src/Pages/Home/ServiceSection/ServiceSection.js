@@ -7,7 +7,7 @@ const ServiceSection = () => {
 
   //fetch services
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    fetch("https://bridal-makeover-server.vercel.app/services")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
@@ -25,7 +25,7 @@ const ServiceSection = () => {
         </p>
       </div>
       <div className="grid lg:grid-cols-3 grid-cols-1 justify-items-center items-center gap-6 py-5 lg:px-0 px-3">
-        {services.slice(0, 3).map((service) => (
+        {services.slice(-3).map((service) => (
           <ServiceCard key={service._id} service={service}></ServiceCard>
         ))}
       </div>

@@ -15,7 +15,7 @@ const MyReviewUpdate = () => {
     };
     console.log("This is Updated Review", review);
 
-    fetch(`http://localhost:5000/reviewUpdate/${_id}`, {
+    fetch(`https://bridal-makeover-server.vercel.app/reviewUpdate/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

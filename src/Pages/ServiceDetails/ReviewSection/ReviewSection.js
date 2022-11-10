@@ -11,11 +11,12 @@ const ReviewSection = () => {
 
   //fetch reviews
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?serviceNo=${_id}`)
+    fetch(`https://bridal-makeover-server.vercel.app/reviews?serviceNo=${_id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setReviews(data);
+        const sort = { date: -1 };
+        setReviews(data).sort(sort);
       });
   }, [_id]);
 
@@ -31,9 +32,11 @@ const ReviewSection = () => {
       userName: user.displayName,
       userImage: user.photoURL,
       userReview: review,
+      email: user.email,
+      date: null,
     };
     console.log(serviceReview);
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://bridal-makeover-server.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

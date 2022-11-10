@@ -1,5 +1,6 @@
 import React from "react";
 import toast, { Toaster } from "react-hot-toast";
+import PageTitle from "../Shared/Header/PageTitle/PageTitle";
 
 const AddService = () => {
   const handleServiceAdd = (event) => {
@@ -18,7 +19,7 @@ const AddService = () => {
       serviceDetails: serviceDetails,
     };
 
-    fetch("http://localhost:5000/services", {
+    fetch("https://bridal-makeover-server.vercel.app/services", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -38,6 +39,7 @@ const AddService = () => {
 
   return (
     <div className="container mx-auto py-10">
+      <PageTitle title={"Add Service"}></PageTitle>
       <h2 className="lg:text-5xl text-pink-900 font-bold lg:text-start text-center text-4xl">
         Add A Service
       </h2>

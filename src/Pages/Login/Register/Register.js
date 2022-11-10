@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import img1 from "../../../assets/images/banner/banner5.jpeg";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
+import PageTitle from "../../Shared/Header/PageTitle/PageTitle";
 
 const Register = () => {
   const [error, setError] = useState("");
@@ -39,6 +40,7 @@ const Register = () => {
 
   return (
     <div className="grid lg:grid-cols-layout grid-cols-mobile_layout mx-auto container lg:px-0 py-16">
+      <PageTitle title={"Register"}></PageTitle>
       <div>
         <img
           className="w-full px-3 lg:px-0 mb-5 lg:mb-0 shadow-xl"
