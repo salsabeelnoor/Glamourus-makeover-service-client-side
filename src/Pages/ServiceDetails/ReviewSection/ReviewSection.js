@@ -15,8 +15,7 @@ const ReviewSection = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        const sort = { date: -1 };
-        setReviews(data).sort(sort);
+        setReviews(data);
       });
   }, [_id]);
 

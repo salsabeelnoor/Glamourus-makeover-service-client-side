@@ -15,8 +15,7 @@ const MyReviews = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        const sort = { date: -1 };
-        setMyReviews(data).sort(sort);
+        setMyReviews(data);
         console.log(myReviews);
       });
   }, [user?.uid, logOut, refresh]);
